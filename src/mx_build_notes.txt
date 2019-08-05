@@ -1,0 +1,29 @@
+1. Create-react-app
+
+1a. rename it to facerecognitionbrain
+
+2. npm install tachyons
+
+3. npm install react-tilt
+
+4. search for a rolyalty free logo
+
+5. backgound: https://leaverou.github.io/css3patterns/#honeycomb
+
+6. particle.js : https://www.npmjs.com/package/react-particles-js
+    npm install react-particles-js
+
+7. Clarifai API:
+// Install the client from NPM
+npm install clarifai
+
+// Require the client
+const Clarifai = require('clarifai');
+
+// initialize with your api key. This will also work in your browser via http://browserify.org/
+const app = new Clarifai.App({
+ apiKey: 'YOUR_API_KEY'
+});
+
+// You can also use the SDK by adding this script to your HTML:
+<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
