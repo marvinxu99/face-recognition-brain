@@ -1,6 +1,6 @@
 1. Create-react-app
 
-1a. rename it to facerecognitionbrain
+1a. rename it to face-recognition-brain
 
 2. npm install tachyons
 
@@ -27,3 +27,6 @@ const app = new Clarifai.App({
 
 // You can also use the SDK by adding this script to your HTML:
 <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+
+
+
