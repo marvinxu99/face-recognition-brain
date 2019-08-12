@@ -10,7 +10,6 @@ import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
 
 
-
 const particleOptions = {
   particles: {
     number: {
