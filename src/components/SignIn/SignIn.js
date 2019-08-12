@@ -5,36 +5,40 @@ class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      singInEmail: '',
-      singInPassword: ''
+      signInEmail: '',
+      signInPassword: ''
     }
   }
 
   onEmailChange = (event) => {
-    this.setState({singInEmail: event.target.value });    
+    this.setState({signInEmail: event.target.value });    
   }
 
   onPasswordChange = (event) => {
-    this.setState({singInPassword: event.target.value });    
+    this.setState({signInPassword: event.target.value });    
   }
 
   onSubmitSignIn = () => {
-    //console.log(this.state);
-    fetch('http://localhost:3001/signin', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: this.state.singInEmail,
-        password: this.state.singInPassword
-      })
-    })
-      .then(response => response.json())
-      .then(user => {
-        if (user.id) {
-          this.props.loadUser(user);
-          this.props.onRouteChange('home');
-        }
-      })
+	const { signInEmail, signInPassword } = this.state;
+
+	if (signInEmail && signInPassword) {	
+		fetch('http://localhost:3001/signin', {
+		  method: 'post',
+		  headers: {'Content-Type': 'application/json'},
+		  body: JSON.stringify({
+			email: signInEmail,
+			password: signInPassword
+		  })
+		})
+		  .then(response => response.json())
+		  .then(user => {
+			if (user.id) {
+			  this.props.loadUser(user);
+			  this.props.onRouteChange('home');
+			}
+		  })
+	  .catch(err => console.log(err))
+	}
   }
 
   render() {
