@@ -25,7 +25,7 @@ class Register extends React.Component {
   onSubmitRegister = () => {
 	const { name, email, password } = this.state;
 	if(name && email && password) {
-		fetch('http://localhost:3001/register', {
+		fetch('https://radiant-mesa-43978.herokuapp.com/register', {
 		  method: 'post',
 		  headers: {'Content-Type': 'application/json'},
 		  body: JSON.stringify({
