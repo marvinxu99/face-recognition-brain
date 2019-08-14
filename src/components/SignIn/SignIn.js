@@ -1,6 +1,8 @@
 import React from 'react';
 import './SignIn.css';
 
+const API_URL_SIGNIN = "http://localhost:3001";
+
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ class SignIn extends React.Component {
 	const { signInEmail, signInPassword } = this.state;
 
 	if (signInEmail && signInPassword) {	
-		fetch('https://radiant-mesa-43978.herokuapp.com/signin', {
+		fetch(`${API_URL_SIGNIN}/signin`, {
 		  method: 'post',
 		  headers: {'Content-Type': 'application/json'},
 		  body: JSON.stringify({

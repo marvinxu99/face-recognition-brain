@@ -1,5 +1,7 @@
 import React from 'react';
 
+const API_URL_REGISTER = "http://localhost:3001";
+
 class Register extends React.Component {
   constructor (props) {
     super(props);
@@ -25,7 +27,7 @@ class Register extends React.Component {
   onSubmitRegister = () => {
 	const { name, email, password } = this.state;
 	if(name && email && password) {
-		fetch('https://radiant-mesa-43978.herokuapp.com/register', {
+		fetch(`${API_URL_REGISTER}/register`, {
 		  method: 'post',
 		  headers: {'Content-Type': 'application/json'},
 		  body: JSON.stringify({

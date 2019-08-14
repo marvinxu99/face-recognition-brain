@@ -9,6 +9,8 @@ import './App.css';
 import SignIn from './components/SignIn/SignIn';
 import Register from './components/Register/Register';
 
+//const API_URL_STRING = "https://radiant-mesa-43978.herokuapp.com";
+const API_URL_STRING = "http://localhost:3001";
 
 const particleOptions = {
   particles: {
@@ -56,12 +58,14 @@ class App extends Component {
     }
   }
 
-  //componentDidMount() {
-  //  fetch('http://localhost:3001')
-  //    .then(response => response.json())
-  //    //.then(data => console.log(data))
-  //    .then(console.log)
-  //}
+  componentDidMount() {
+//	fetch("http://localhost:3001")
+    fetch(`${API_URL_STRING}`)
+      //.then(response => response.json())
+      .then(data => console.log(data))
+      .then(console.log)
+	  .catch(console.log)
+  }
 
   loadUser = (data) => {
     this.setState({user: {
@@ -100,7 +104,7 @@ class App extends Component {
 
   onButtonClick = () => {
     this.setState({ imageUrl2: this.state.urlInput });
-	fetch('https://radiant-mesa-43978.herokuapp.com/imageurl', {
+	fetch(`${API_URL_STRING}/imageurl`, {
 		method: 'post',
 		headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify({
@@ -110,7 +114,7 @@ class App extends Component {
 	.then(response => response.json())
       .then(response => {
         if(response) {
-          fetch('https://radiant-mesa-43978.herokuapp.com/image', {
+          fetch(`${API_URL_STRING}/image`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
